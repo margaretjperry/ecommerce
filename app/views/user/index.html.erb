@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+<p>Select a user</p>
+<ul>
+<% @users.each do |u| %>
+	<li><a href="/user/<%= u.id %>"><%= "#{u.name}" %></a></li>
+<% end %>
+</ul>

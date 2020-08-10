@@ -1,0 +1,6 @@
+var message = document.createElement('span');
+message.innerHTML = "Product created";
+var form = document.getElementsByClassName('new-product-form')[0]
+if(form.lastElementChild.tagName !== "SPAN") {
+	form.appendChild(message);
+}

@@ -1,0 +1,63 @@
+<h2><%= "#{@user.name}" %>'s product list:</h2>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+        <table class="pure-table pure-table-horizontal product-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Style</th>
+                    <th>Brand</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @products.each do |product| %>
+                    <tr>
+                        <td><%= "#{product.product_name}" %></td>
+                        <td><%= "#{product.style}" %></td>
+                        <td><%= "#{product.brand}" %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div class="pure-u-1-2">
+        <%= form_with url: '/product/create', :html => {class: 'pure-form pure-form-aligned new-product-form' }, :remote => true do |f| %>
+            <fieldset>
+                <legend>Add a new product</legend>
+                <div class="pure-control-group">
+                    <%= f.label :product_name, :class => 'aligned-product-name' %>
+                    <%= f.text_field :product_name, :id => 'aligned-product-name' %>
+                </div>
+                <div class="pure-control-group">
+                    <%= f.label :product_description, :class => 'aligned-product-description' %>
+                    <%= f.text_field :product_description, :id => 'aligned-product-description' %>
+                </div>
+                <div class="pure-control-group">
+                    <%= f.label :style, :class => 'aligned-style' %>
+                    <%= f.text_field :style, :id => 'aligned-style' %>
+                </div>
+                <div class="pure-control-group">
+                    <%= f.label :brand, :class => 'aligned-brand' %>
+                    <%= f.text_field :brand, :id => 'aligned-brand' %>
+                </div>
+                <div class="pure-control-group">
+                    <%= f.label :product_type, :class => 'aligned-product-type' %>
+                    <%= f.text_field :product_type, :id => 'aligned-product-type' %>
+                </div>
+                <div class="pure-control-group">
+                    <%= f.label :price, :class => 'aligned-price' %>
+                    <%= f.text_field :price, :id => 'aligned-price' %>
+                </div>
+                <%= f.hidden_field :admin_id, value: @user.id %>
+                <div class="pure-controls">
+                    <%= f.submit "Submit", :class => 'pure-button pure-button-primary' %>
+                </div>
+            </fieldset>
+        <% end %>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <p><a href="/user/<%= @user.id %>/inventory">Inventory</a></p>
+        </div>
+    </div>
+</div>
