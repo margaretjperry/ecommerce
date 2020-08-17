@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app was built with Ruby `2.7.1` and Rails `6.0` and a Postgres database. To run this app locally, simply clone this repo, run `rake db:create` to seed the database with the sample data, and finally `rails s`.

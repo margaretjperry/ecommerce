@@ -1,6 +1,8 @@
 <h2><%= "#{@user.name}" %>'s inventory</h2>
+
 <div class="pure-g">
     <div class="pure-u-1">
+        <input type="text" id="sku-filter" placeholder="Search by SKU" >
         <table class="pure-table pure-table-horizontal inventory-table" id="inventory">
             <thead>
                 <tr>
@@ -27,6 +29,6 @@
                 <% end %>
             </tbody>
         </table>
-        <%= javascript_pack_tag( 'list_filter' ) %>
     </div>
+    <%= javascript_pack_tag( 'sku_filter' ) %>
 </div>
